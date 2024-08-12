@@ -1,0 +1,24 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+<title>Kaydol</title>
+
+{% include "_navbar.html" %}
+
+<form action="{% url 'register_user' %}" method="post" style="margin-top:100px; margin-left: 20px; margin-right: 20px; align-self:center;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br/>
+  <input type="submit" value="Kaydol" class="btn btn-danger">
+</form>
+
+<br/>
+
+{% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        Bir hata oluştu
+    </div>
+{% endif %}
+

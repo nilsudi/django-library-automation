@@ -1,0 +1,19 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+<title>Anasayfa</title>
+
+{% if messages %}
+{% for message in messages %}
+  <div class="alert alert-primary" role="alert" style="margin-top: 70px; position: fixed; top: 0; left: 0; width: 100%; z-index: 99;">
+    {{ message }}
+  </div>
+{% endfor %}
+{% endif %}
+
+{% include "_navbar.html" %}
+{% include "_quote.html" %}
+{% include "_about.html" %}
+{% include "_numbers.html" %}

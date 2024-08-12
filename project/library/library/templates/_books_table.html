@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/static/css/style.css">
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-light" style="margin-top: 70px; background-color: white;">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a href="/user/new_book" style="background-image: linear-gradient(to bottom right, purple, lightblue); border-radius: 30px; padding: 15px 25px 15px 25px; margin-right: 15px; text-decoration: none; color: white">Kitap Ekle</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sırala
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            <li><a class="dropdown-item" href="#">Kitap ismine göre</a></li>
+            <li><a class="dropdown-item" href="#">Yazara göre</a></li>
+            <li><a class="dropdown-item" href="#">Yayınevine göre</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" style="margin-top: 10px;">
+        <input class="form-control me-2" type="search" placeholder="Ara" aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Ara</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<table class="table" style="background-image: linear-gradient(to left, pink, lightblue);">
+  <thead>
+    <tr>
+      <th scope="col">:)</th>
+      <th scope="col">KİTAP İSMİ</th>
+      <th scope="col">YAZAR</th>
+      <th scope="col">DETAY</th>
+      <th scope="col">DÜZENLE</th>
+      <th scope="col">SİL</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for book in bookList %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ book.book_name }}</td>
+      <td>{{ book.author_name }}</td>
+      <td><a href="/user/book_details/{{ book.bookId }}"><img src="/static/icons8-magnifying-glass-30.png" alt="err"></a></td>
+      <td><a href="/user/update/{{ book.bookId }}"><img src="/static/icons8-edit-24.png" alt="err"></a></td>
+      <td><a href="/user/delete/{{ book.bookId }}"><img src="/static/icons8-delete-30.png" alt="err"></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

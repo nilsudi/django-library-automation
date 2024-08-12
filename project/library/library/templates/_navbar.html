@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/static/css/style.css">
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bosclass" style="height: 70px; position: fixed; display: absolute; top: 0; left: 0; right: 0; z-index: 3;">
+      <div class="container-fluid">
+        <a class="navbar-brand" id="navbar-brand" href="/" style="font-family: Impact, fantasy; font-size: 30px;" >NilKitap</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Anasayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/books">Kitaplar</a>
+            </li>
+          </ul>
+          <div class="nav-item">
+            {% if user.is_authenticated %}
+            <ul>
+              <li style="list-style-type: none; float:left;"><p style="margin-top:10px; margin-right: 20px; color: gray;">Hoşgeldin {{user}} </p></li>
+              <li style="list-style-type: none; float:left; margin-top:10px;"><a href="{% url 'logout' %}" style="text-decoration: none; color: gray;">Çıkış Yap</a></li>
+            </ul>
+            {% else %}
+            <a class="nav-link" id="sign-in-button" href="/members/login_user" style="text-decoration: none; color: gray; float:left;">Giriş Yap</a>
+            <a class="nav-link" id="register-button" href="/members/register_user" style="text-decoration: none; color: gray; float:left;">Kaydol</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+

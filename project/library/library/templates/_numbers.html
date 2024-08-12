@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/static/css/style.css">
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+
+<div id="numbers-div" class="row align-items-center justify-content-around" style="height: fit-content; width; 100%; background: #E99F4C;">
+    <div class="column-6" style="border-radius: 280px; background: #F0E9DD; width: 280px; height: 280px; margin: 10px; padding-top: 25px; text-align: center;">
+        <h1>Kitap</h1>
+        <h1 style="font-size: 105px;">{{data.bookcount}}</h1>
+    </div>
+    <div class="column-6" style="border-radius: 280px; background: #F0E9DD; width: 280px; height: 280px; margin: 10px; padding-top: 25px; text-align: center">
+        <h1>Kullanıcı</h1>
+        <h1 style="font-size: 105px;">{{data.users}}</h1>
+    </div>
+
+</div>

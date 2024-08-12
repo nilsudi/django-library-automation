@@ -1,0 +1,20 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+<title>Kitap Detayı</title>
+
+{% include "_navbar.html" %}
+
+<div style="margin-left: 100px">
+  <h1 style="margin-top:86px; color: purple; margin-bottom: 16px;">{{ book }}</h1>
+  <h5>ID: {{ book.bookId }}<h5/>
+  <h5>Kitap Adı: {{ book.book_name }}<h5/>
+  <h5>Yazar Adı: {{ book.author_name }}<h5/>
+  <h5>Yayınevi: {{ book.publisher }}<h5/>
+  <br/>
+    {% if book.book_image %}
+    <div><img src="{{ book.book_image.url }}" alt="error"><div/>
+    {% endif %}
+</div>
